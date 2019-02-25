@@ -1,0 +1,14 @@
+<launch>
+  <master auto="start"/>
+
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find autocar_nav)/maps/07260407MAP.yaml">
+  </node>
+
+  <!-- Run the amcl location -->
+  <include file="$(find amcl)/examples/amcl_omni.launch"/>
+
+  <!-- Configure the move_base pack -->
+  <include file="$(find autocar_nav)/move_base/move_base.xml"/>
+
+</launch>
